@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'YUMEXHA';
+
+  src: url('regular.woff2') format('woff2'),
+    url('regular.woff') format('woff'),
+    url('regular.ttf') format('truetype');
+
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
