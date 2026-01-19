@@ -4,4 +4,5 @@ import unocss from "unocss/astro";
 
 export default defineConfig({
   integrations: [unocss(), solid()],
+  site: "https://milescode.dev",
 });
