@@ -3,7 +3,9 @@ import computer from "../assets/computer.txt?raw";
 import hands from "../assets/hands.txt?raw";
 import footer from "../assets/footer.txt?raw";
 import radialDots from "../assets/radial-dots.svg";
-import Star from "../assets/star";
+import Star from "../components/landing/star";
+import MilesLeftStrip from "../components/landing/miles-left-strip";
+import MilesRightStrip from "../components/landing/miles-right-strip";
 
 const LandingPage = () => {
   return (
@@ -28,15 +30,28 @@ const LandingPage = () => {
         />
       </div>
 
-      {/* <p class="hidden xl:block fixed top-12vh ml-16vw font-mono whitespace-pre pointer-events-none leading-.75vh text-.65vh opacity-50">
-        {stars}
-      </p> */}
-
       {/* third circle */}
       <div class="pointer-events-none z-10 fixed -bottom-20vh size-96vh border border-white/10 rd-full flex justify-center pt-.5vh">
-        <h1 class="pointer-events-auto font-display [writing-mode:vertical-lr] [text-orientation:upright] -tracking-4.5vh text-9.5vh">
-          MILES
-        </h1>
+        <div class="w-fit relative">
+          <svg
+            width="4vh"
+            height="4vh"
+            viewBox="0 0 38 38"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute left-0 top-1vh rd-xs"
+          >
+            <path
+              d="M38 3H9C5.68629 3 3 5.68629 3 9V38"
+              stroke="white"
+              stroke-width="6"
+            />
+          </svg>
+
+          <h1 class="pointer-events-auto font-display [writing-mode:vertical-lr] [text-orientation:upright] -tracking-4.5vh text-9.5vh">
+            MILES
+          </h1>
+        </div>
       </div>
 
       {/* fourth circle */}
@@ -78,7 +93,21 @@ const LandingPage = () => {
         />
 
         <div class="absolute -right-12 top-6 w-25vw flex flex-col gap-2">
-          <div class="h-24 border flex items-center justify-center">
+          <div class="relative h-24 border flex items-center justify-center">
+            <div
+              class="absolute top-3 left-3 size-5 bg-white"
+              style={{
+                "clip-path": "polygon(0 0, 0 100%, 100% 0)",
+              }}
+            />
+
+            <div
+              class="absolute bottom-3 right-3 size-5 bg-white rotate-180"
+              style={{
+                "clip-path": "polygon(0 0, 0 100%, 100% 0)",
+              }}
+            />
+
             <p class="pl-1vw font-noto font-black text-[min(3.5vw,48px)] tracking-1vw text-center">
               クライソラ
             </p>
@@ -100,12 +129,19 @@ const LandingPage = () => {
             >
               github
             </a>
+
+            <div
+              class="size-6 bg-white"
+              style={{
+                "clip-path": "polygon(0 0, 0 100%, 100% 0)",
+              }}
+            />
           </div>
         </div>
 
         <p class="absolute font-mono text-[min(2vh,14px)] bottom-2 left-3">
           BROUGHT TO YOU BY{" "}
-          <a href="https://github/Vexcited" target="_blank">
+          <a href="https://github.com/Vexcited" target="_blank">
             MIKKEL
           </a>{" "}
           AND{" "}
@@ -118,14 +154,14 @@ const LandingPage = () => {
           CYBERSECURITY - WEB DEVELOPMENT
         </p>
 
-        <div class="absolute top-4 left-5 flex flex-col">
+        <div class="absolute top-4 left-5 flex flex-col font-mono text-[min(2vh,16px)]">
           <div class="flex items-center gap-2">
-            <div class="bg-white size-1.5" />
-            <p class="font-mono">Invertime......19ms</p>
+            <div class="bg-white size-1vh" />
+            <p>Invertime......19ms</p>
           </div>
           <div class="flex items-center gap-2">
-            <div class="bg-white size-1.5" />
-            <p class="font-mono">Vexcited........6ms</p>
+            <div class="bg-white size-1vh" />
+            <p>Vexcited........6ms</p>
           </div>
         </div>
 
@@ -135,8 +171,10 @@ const LandingPage = () => {
           </p>
         </div>
 
-        <p class="absolute inset-x-0 w-fit mx-auto bottom-0 pb-2vh text-2vh font-mono">
+        <p class="absolute inset-x-0 w-fit mx-auto bottom-0 pb-2.5vh text-.95vh font-mono flex items-center gap-1">
+          <MilesLeftStrip />
           MILES
+          <MilesRightStrip />
         </p>
       </div>
 
@@ -149,7 +187,7 @@ const LandingPage = () => {
       />
 
       {/* footer text, half hidden behind everything */}
-      <p class="fixed top-86% font-mono whitespace-pre select-none tracking-.45vw text-1vh opacity-50">
+      <p class="pointer-events-none fixed top-86% font-mono whitespace-pre select-none tracking-.45vw text-1vh opacity-50">
         {footer}
       </p>
     </div>
