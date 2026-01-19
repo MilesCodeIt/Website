@@ -1,11 +1,11 @@
-import grain from "../assets/grain.png";
-import computer from "../assets/computer.txt?raw";
-import hands from "../assets/hands.txt?raw";
-import footer from "../assets/footer.txt?raw";
-import radialDots from "../assets/radial-dots.svg";
-import Star from "../components/landing/star";
-import MilesLeftStrip from "../components/landing/miles-left-strip";
-import MilesRightStrip from "../components/landing/miles-right-strip";
+import grain from "../../assets/grain.png";
+import computer from "../../assets/computer.txt?raw";
+import hands from "../../assets/hands.txt?raw";
+import footer from "../../assets/footer.txt?raw";
+import radialDots from "../../assets/radial-dots.svg";
+import Star from "./star";
+import MilesLeftStrip from "./miles-left-strip";
+import MilesRightStrip from "./miles-right-strip";
 
 const LandingPage = () => {
   return (
@@ -24,7 +24,7 @@ const LandingPage = () => {
 
         <img
           aria-hidden
-          src={radialDots}
+          src={radialDots.src}
           alt="Stars of wisdom!"
           class="absolute inset-0 object-top scale-170 -left-.5vh -top-46.5vh"
         />
@@ -182,7 +182,7 @@ const LandingPage = () => {
       <div
         class="z-0 fixed inset-0 opacity-50 mix-blend-color-dodge pointer-events-none bg-white"
         style={{
-          background: `url(${grain})`,
+          background: `url(${grain.src})`,
         }}
       />
 
