@@ -7,6 +7,7 @@ import MilesLeftStrip from "./miles-left-strip";
 import MilesRightStrip from "./miles-right-strip";
 import CreationOfAdamAscii from "../three/CreationOfAdamAscii";
 import { Motion } from "solid-motionone";
+import ScrambleText from "./scramble-text";
 
 const LandingPage = () => {
   return (
@@ -19,23 +20,31 @@ const LandingPage = () => {
 
       {/* second circle */}
       <div class="pointer-events-none fixed -bottom-20vh size-115vh border border-white/10 rd-full flex justify-center pt-1vh">
-        <p class="absolute font-mono whitespace-pre select-none leading-1.5vh text-1.3vh">
+        <Motion.p class="absolute font-mono whitespace-pre select-none leading-1.5vh text-1.3vh"
+        >
           {computer}
-        </p>
+        </Motion.p>
 
-        <img
+        <Motion.img
           aria-hidden
+          animate={{
+            opacity: [0, 1],
+          }}
+          transition={{duration: 2.5, easing: "ease-out"}}
           src={radialDots.src}
           alt="Stars of wisdom!"
-          class="absolute inset-0 object-top scale-170 -left-.5vh -top-46.5vh animate-spin animate-duration-240000"
+          class="absolute inset-0 object-top scale-170 -left-.5vh -top-46.5vh animate-spin animate-duration-240000 opacity-0"
         />
       </div>
 
       {/* third circle */}
       <div class="pointer-events-none z-10 fixed -bottom-20vh size-96vh border border-white/10 rd-full flex justify-center pt-.5vh">
-        <Motion.div class="w-fit relative"
-          animate={{opacity: [0, 1], scale: [1.25, 1]}}
-          transition={{delay: .5, duration: 2, easing: "ease-out"}}
+        <Motion.div class="w-fit relative opacity-0"
+          animate={{
+            opacity: [0, 1],
+            scale: [1.05, 1]
+          }}
+          transition={{delay: .5, duration: 2.5, easing: "ease-out"}}
         >
           <svg
             width="4vh"
@@ -54,7 +63,7 @@ const LandingPage = () => {
 
           <h1 class="pointer-events-auto font-display [writing-mode:vertical-lr] [text-orientation:upright] -tracking-4.5vh text-9.5vh"
           >
-            MILES
+            <ScrambleText text="MILES" delay={500} revealSpeed={.5} scrambleSpeed={50} />
           </h1>
         </Motion.div>
       </div>
@@ -114,7 +123,7 @@ const LandingPage = () => {
             />
 
             <p class="pl-1vw font-noto font-black text-[min(3.5vw,48px)] tracking-1vw text-center">
-              クライソラ
+              <ScrambleText text="クライソラ" scrambleSpeed={140} />
             </p>
           </div>
 
@@ -145,36 +154,33 @@ const LandingPage = () => {
         </div>
 
         <p class="absolute font-mono text-[min(2vh,14px)] bottom-2 left-3">
-          BROUGHT TO YOU BY{" "}
-          <a href="https://github.com/Vexcited" target="_blank">
-            MIKKEL
-          </a>{" "}
-          AND{" "}
-          <a href="https://github.com/invertime" target="_blank">
-            JULES
-          </a>
+          <ScrambleText
+            text="BROUGHT TO YOU BY MIKKEL AND JULES"
+            scrambleSpeed={15}
+          />
         </p>
 
         <p class="absolute font-mono text-[min(2vh,14px)] bottom-2 right-3">
-          CYBERSECURITY - WEB DEVELOPMENT
+          <ScrambleText
+            text="CYBERSECURITY - WEB DEVELOPMENT"
+            scrambleSpeed={20}
+          />
         </p>
 
         <div class="absolute top-4 left-5 flex flex-col font-mono text-[min(2vh,16px)]">
           <div class="flex items-center gap-2">
-            <div class="bg-white size-1vh" />
-            <p>Invertime......19ms</p>
+            <div class="bg-white size-.75vh" />
+            <p><ScrambleText text="Invertime......19ms" scrambleSpeed={30} /></p>
           </div>
           <div class="flex items-center gap-2">
-            <div class="bg-white size-1vh" />
-            <p>Vexcited........6ms</p>
+            <div class="bg-white size-.75vh" />
+            <p><ScrambleText text="Vexcited........6ms" scrambleSpeed={30} /></p>
           </div>
         </div>
 
         <Motion.div
-
           animate={{opacity: [0, .75]}}
-                transition={{duration: 1.5, easing: "ease-out"}}
-
+          transition={{duration: 1.5, easing: "ease-out"}}
           class="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden opacity-75">
           <CreationOfAdamAscii />
         </Motion.div>
@@ -195,9 +201,12 @@ const LandingPage = () => {
       />
 
       {/* footer text, half hidden behind everything */}
-      <p class="pointer-events-none fixed top-86% font-mono whitespace-pre select-none tracking-.45vw text-1vh opacity-50">
+      <Motion.p class="pointer-events-none fixed font-mono whitespace-pre select-none tracking-.45vw text-1vh opacity-0"
+        animate={{top: ["100%", "86%"], opacity: [0, .5]}}
+        transition={{duration: 2, easing: "ease-out"}}
+      >
         {footer}
-      </p>
+      </Motion.p>
     </div>
   );
 };
