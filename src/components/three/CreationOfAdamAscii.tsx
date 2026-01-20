@@ -8,7 +8,7 @@ const CreationOfAdamAscii: VoidComponent = () => {
   let container!: HTMLDivElement;
 
   onMount(() => {
-    const MODEL_URL = "/src/assets/the-creation-of-adam/scene.gltf";
+    const MODEL_URL = "/the-creation-of-adam/scene.gltf";
 
     const scene = new THREE.Scene();
     scene.background = null;
